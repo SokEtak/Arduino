@@ -1,0 +1,5 @@
+Detail About Water Sensor
+Water Sensor Pin	Connect to Arduino
+VCC-5V
+GND-GND
+SIG(Signal)-A0(Analog Input)
