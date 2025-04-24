@@ -1,0 +1,20 @@
+🛠️ Arduino Library Installation Guide
+📦 Libraries to Install in Arduino IDE
+Open Arduino IDE
+
+Go to Sketch > Include Library > Manage Libraries…
+
+🔍 Search and Install the Following Libraries:
+✅ 1. Dabble
+Search: Dabble
+
+Author: STEMpedia
+
+Click: Install
+
+✅ 2. AFMotor
+Search: Adafruit Motor Shield or AFMotor
+
+Author: Adafruit
+
+Click: Install
