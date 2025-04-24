@@ -1,0 +1,12 @@
+You need to install the LiquidCrystal_I2C library to work with the LCD. You can install it using the Arduino Library Manager:
+
+Steps to Install:
+Open Arduino IDE.
+
+Go to Sketch → Include Library → Manage Libraries.
+
+In the search bar, type LiquidCrystal_I2C.
+
+Look for LiquidCrystal I2C by Frank de Brabander.
+
+Click Install.
