@@ -8,8 +8,7 @@ Components:
 Arduino Board - 1
 Adafruit Motor Shield - 1
 DC Motors - 2 (connected to motor ports 3 and 4)
-Ultrasonic Sensor (HC-SR04) - 1/2
-IR Sensors (analog) - 4 (connected to A0 - A4)
+Ultrasonic Sensor (HC-SR04) - 1-2
+IR Sensors (analog) - 2 (connected to A0 - A1)
 Jumper Wires - several (for connecting components)
 Power Supply (e.g., battery pack) - 1 (to power the motors and Arduino)
-
