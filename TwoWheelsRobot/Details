@@ -1,0 +1,15 @@
+Description:
+This Arduino code is designed to control a small autonomous robot equipped with DC motors, 
+IR sensors, and an ultrasonic sensor. It uses the Adafruit Motor Shield to control motor movement and relies 
+on sensor input for basic navigation.
+
+Components:
+
+Arduino Board - 1
+Adafruit Motor Shield - 1
+DC Motors - 2 (connected to motor ports 3 and 4)
+Ultrasonic Sensor (HC-SR04) - 1/2
+IR Sensors (analog) - 4 (connected to A0 - A4)
+Jumper Wires - several (for connecting components)
+Power Supply (e.g., battery pack) - 1 (to power the motors and Arduino)
+
