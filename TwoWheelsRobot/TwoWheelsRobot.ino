@@ -5,14 +5,12 @@ AF_DCMotor motor2(4);
 int echo = 9;
 int trig = 10;
 int irPin1 = A0;
-// const int irPin2 = A1;
 int irPin2 = A2;
 
 double distance = 0;
 double duration = 0;
 int irValue1 = 0;           
 int irValue2 = 0;
-int irValue3 = 0;
 
 
 void setup() {
@@ -22,7 +20,6 @@ void setup() {
   pinMode(echo, INPUT);
   pinMode(irPin1, INPUT);
   pinMode(irPin2, INPUT);
-  // pinMode(irPin3, INPUT);
   delay(1000);
   Serial.println("Start!");
 
@@ -37,7 +34,6 @@ void loop() {
   Serial.println(irValue1);
   Serial.print("irValue2: ");
   Serial.println(irValue2);
-  Left();
   delay(1000);
 }
 
