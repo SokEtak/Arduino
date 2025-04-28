@@ -1,87 +1,85 @@
 #define CUSTOM_SETTINGS
 #define INCLUDE_GAMEPAD_MODULE
+
 #include <AFMotor.h>
 #include <Dabble.h>
-//SoftwareSerial bluetooth(15, 14);
-AF_DCMotor motor3(3);  
-AF_DCMotor motor4(4);  
+
+// AFMotor Setup
+AF_DCMotor motor1(1);  
+AF_DCMotor motor2(2);  
 
 void setup() {
   Serial.begin(115200);
-  Dabble.begin(9600,9,10);
-  motor3.setSpeed(300);
-  motor4.setSpeed(300);
+  //You can choose another pin
+  Dabble.begin(9600, 9, 10); // RX = 9, TX = 10
+  motor1.setSpeed(300);
+  motor2.setSpeed(300);
   Serial.println("Start!");
 }
 
 void loop() {
-// put your main code here, to run repeatedly:
-Dabble.processInput();
-if (GamePad.isUpPressed())
-  {
+  Dabble.processInput();
+  //D-Pad (Directional Pad)
+  if (GamePad.isUpPressed()) {
     Serial.println("Up");
     moveForward();
-  }else if (GamePad.isDownPressed())
-  {
+  }
+  else if (GamePad.isDownPressed()) {
     Serial.println("Down");
     moveBackward();
-  }else if (GamePad.isLeftPressed())
-  {
+  }
+  else if (GamePad.isLeftPressed()) {
     Serial.println("Left");
     turnLeft();
-  }else if (GamePad.isRightPressed())
-  {
+  }
+  else if (GamePad.isRightPressed()) {
     Serial.println("Right");
     turnRight();
-  }else if (GamePad.isSquarePressed())
-  {
-    Serial.println("Square");
-  }else if (GamePad.isCirclePressed())
-  {
-    Serial.println("Circle");
-  }else if (GamePad.isCrossPressed())
-  {
-    Serial.println("Cross");
-    stopMoving();
   }
-
-  if (GamePad.isTrianglePressed())
-  {
+  //Button Face(Skills)
+  if (GamePad.isTrianglePressed()) {
     Serial.println("Triangle");
   }
-
-  if (GamePad.isStartPressed())
-  {
+  else if (GamePad.isSquarePressed()) {
+    Serial.println("Square");
+  }
+  else if (GamePad.isCirclePressed()) {
+    Serial.println("Circle");
+  }
+  else if (GamePad.isCrossPressed()) {
+    Serial.println("Cross");
+  }
+  //Special Button
+  if (GamePad.isStartPressed()) {
     Serial.println("Start");
   }
-
-  if (GamePad.isSelectPressed())
-  {
+  else if (GamePad.isSelectPressed()) {
     Serial.println("Select");
   }
 }
 
-void moveBackward() {
-  motor3.run(BACKWARD);
-  motor4.run(BACKWARD);
+// Movement Functions
+void moveForward() {
+  motor1.run(FORWARD);
+  motor2.run(FORWARD);
 }
 
-void moveForward() {
-  motor3.run(FORWARD);
-  motor4.run(FORWARD);
+void moveBackward() {
+  motor1.run(BACKWARD);
+  motor2.run(BACKWARD);
 }
 
 void turnLeft() {
-  motor3.run(BACKWARD);
-  motor4.run(FORWARD);
+  motor1.run(BACKWARD);
+  motor2.run(FORWARD);
 }
 
 void turnRight() {
-  motor3.run(FORWARD);
-  motor4.run(BACKWARD);
+  motor1.run(FORWARD);
+  motor2.run(BACKWARD);
 }
 
 void stopMoving() {
-  motor3.run(RELEASE);
-  motor4.run(RELEASE);
+  motor1.run(RELEASE);
+  motor2.run(RELEASE);
 }
