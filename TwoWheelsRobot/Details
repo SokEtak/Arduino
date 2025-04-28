@@ -3,12 +3,27 @@ This Arduino code is designed to control a small autonomous robot equipped with 
 IR sensors, and an ultrasonic sensor. It uses the Adafruit Motor Shield to control motor movement and relies 
 on sensor input for basic navigation.
 
-Components:
+Components Needed:
+- Arduino Board - 1
+- Adafruit Motor Shield - 1
+- DC Motors - 2 (connected to motor ports 3 and 4)
+- Ultrasonic Sensor (HC-SR04) - 1 to 2
+- IR Sensors (analog) - 2 (connected to A0 and A2)
+- Jumper Wires - several (for connecting components)
+- Power Supply (e.g., battery pack) - 1 (to power the motors and Arduino)
 
-Arduino Board - 1
-Adafruit Motor Shield - 1
-DC Motors - 2 (connected to motor ports 3 and 4)
-Ultrasonic Sensor (HC-SR04) - 1-2
-IR Sensors (analog) - 2 (connected to A0 - A1)
-Jumper Wires - several (for connecting components)
-Power Supply (e.g., battery pack) - 1 (to power the motors and Arduino)
+How to Install the Adafruit Motor Shield Library
+
+Option 1: Install via Arduino IDE Library Manager
+- Open the Arduino IDE.
+- Click Sketch, then Include Library, then Manage Libraries.
+- In the search box, type "Adafruit Motor Shield".
+- Look for "Adafruit Motor Shield library" by Adafruit.
+- Click Install.
+- Make sure it is for the AFMotor class (the older Adafruit Motor Shield V1).
+
+Option 2: Install manually
+- Download the library from GitHub: Adafruit Motor Shield V1 Library.
+- Unzip the downloaded file.
+- Copy the unzipped folder into your Arduino/libraries/ folder.
+- Restart the Arduino IDE.
