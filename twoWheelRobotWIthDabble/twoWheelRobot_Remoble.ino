@@ -11,7 +11,8 @@ AF_DCMotor motor2(2);
 void setup() {
   Serial.begin(115200);
   //You can choose another pin
-  Dabble.begin(9600, 9, 10); // RX = 9, TX = 10
+  Dabble.begin(9600, 10, 9); // RX = 10, TX = 9
+
   motor1.setSpeed(300);
   motor2.setSpeed(300);
   Serial.println("Start!");
