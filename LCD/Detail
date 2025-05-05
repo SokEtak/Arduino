@@ -1,4 +1,4 @@
-Description:
+                                                                                Description:
 This Arduino program reads data from an analog sensor and displays the result on an I2C LCD screen. Based on the sensor's value, it classifies the 
 input into different categories (such as colors) and shows the corresponding label on the LCD. It also prints the raw sensor data to the Serial Monitor for 
 monitoring or debugging. The code includes functionality for measuring distance using an ultrasonic sensor, though it is not currently active in the main program.
