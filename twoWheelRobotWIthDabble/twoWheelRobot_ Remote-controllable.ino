@@ -13,8 +13,8 @@ void setup() {
   //You can choose another pin
   Dabble.begin(9600, 10, 9); // RX = 10, TX = 9
 
-  motor1.setSpeed(300);
-  motor3.setSpeed(300);
+  motor1.setSpeed(250);
+  motor3.setSpeed(250);
   Serial.println("Start!");
 }
 
