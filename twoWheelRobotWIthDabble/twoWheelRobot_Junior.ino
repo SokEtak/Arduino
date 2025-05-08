@@ -5,15 +5,15 @@
 #include <Dabble.h>
 
 // AFMotor Setup
-AF_DCMotor motor2(2);  
-AF_DCMotor motor3(3);  
+AF_DCMotor m1(2);  
+AF_DCMotor m3(3);  
 
 void setup() {
   Serial.begin(115200);
   //You can choose another pin
   Dabble.begin(9600, 10, 9); // RX = 9, TX = 10
-  motor2.setSpeed(300);
-  motor3.setSpeed(300);
+  m1.setSpeed(300);
+  m3.setSpeed(300);
   Serial.println("Start!");
 }
 
@@ -64,26 +64,26 @@ void loop() {
 
 // Movement Functions
 void moveForward() {
-  motor2.run(FORWARD);
-  motor3.run(FORWARD);
+  m1.run(FORWARD);
+  m3.run(FORWARD);
 }
 
 void moveBackward() {
-  motor2.run(BACKWARD);
-  motor3.run(BACKWARD);
+  m1.run(BACKWARD);
+  m3.run(BACKWARD);
 }
 
 void turnLeft() {
-  motor2.run(BACKWARD);
-  motor3.run(FORWARD);
+  m1.run(BACKWARD);
+  m3.run(FORWARD);
 }
 
 void turnRight() {
-  motor2.run(FORWARD);
-  motor3.run(BACKWARD);
+  m1.run(FORWARD);
+  m3.run(BACKWARD);
 }
 
 void stopMoving() {
-  motor2.run(RELEASE);
-  motor3.run(RELEASE);
+  m1.run(RELEASE);
+  m3.run(RELEASE);
 }
