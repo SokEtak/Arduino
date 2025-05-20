@@ -10,7 +10,6 @@ int in2 =12;
 int in3 = 11;
 int in4 = 10;
 
-// Movement Functions
 void setup() {
   Serial.begin(9600);
   Dabble.begin(9600, 3); // RX = 3
@@ -25,6 +24,7 @@ void loop() {
   handleButtonPress();
   //moveForward();
 }
+// Movement Functions
 void moveForward() {
   digitalWrite(in1, HIGH); digitalWrite(in2, LOW);
   digitalWrite(in3, HIGH); digitalWrite(in4, LOW);
