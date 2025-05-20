@@ -22,7 +22,6 @@ void setup() {
 
 void loop() {
   handleButtonPress();
-  //moveForward();
 }
 // Movement Functions
 void moveForward() {
@@ -66,34 +65,34 @@ void anticlockwiseMove() {
 void handleButtonPress() {
   Dabble.processInput();
   if (GamePad.isUpPressed()) {
-    // Serial.println("Forward");
-    return moveForward();
+    ​ Serial.println("Forward");
+     moveForward();
   }
   else if (GamePad.isDownPressed()) {
-    // Serial.println("Backward");
-    return moveBackward();
+     Serial.println("Backward");
+     moveBackward();
   }
   else if (GamePad.isLeftPressed()) {
     // Serial.println("Left");
-    // return turnLeft(); 
-    return turnLeft();
+    // turnLeft(); 
+     turnLeft();
   }
   else if (GamePad.isRightPressed()) {
     // Serial.println("Right");
-    // return turnRight(); 
-    return turnRight(); 
+    //turnLeft(); 
+     turnRight(); 
   }
 
   else if (GamePad.isSquarePressed()) {
     // Serial.println("Spin Counterclockwise");
-    return turnLeft();
+    turnLeft();
   }
   else if (GamePad.isCirclePressed()) {
     // Serial.println("Spin ClockwiseMove");
-    return turnRight();
+    turnRight();
   }
   else {
-    return stop();
+    stop();
   }
   delay(50);
 }
