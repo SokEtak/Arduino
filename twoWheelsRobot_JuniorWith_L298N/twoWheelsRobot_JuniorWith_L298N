@@ -2,11 +2,11 @@
 #define INCLUDE_GAMEPAD_MODULE
 #include <Dabble.h>
 
-//Left Motor
-int in1 =13;
-int in2 =12;
+// Left Motor
+int in1 = 13;
+int in2 = 12;
 
-//Right Motor
+// Right Motor
 int in3 = 11;
 int in4 = 10;
 
@@ -21,8 +21,12 @@ void setup() {
 }
 
 void loop() {
+  Dabble.processInput();
   handleButtonPress();
+  handleJoystickInput();  // Now both buttons and joystick work
+  delay(50);
 }
+
 // Movement Functions
 void moveForward() {
   digitalWrite(in1, HIGH); digitalWrite(in2, LOW);
@@ -49,50 +53,61 @@ void stop() {
   digitalWrite(in3, LOW); digitalWrite(in4, LOW);
 }
 
-// Spin clockwise (turn right in place)
-void clockwiseMove() {
-  digitalWrite(in1, HIGH); digitalWrite(in2, LOW);
-  digitalWrite(in3, LOW);  digitalWrite(in4, HIGH);
-}
-
-// Spin counterclockwise (turn left in place)
-void anticlockwiseMove() {
-  digitalWrite(in1, LOW);  digitalWrite(in2, HIGH);
-  digitalWrite(in3, HIGH); digitalWrite(in4, LOW);
-}
-
 // Handle gamepad button input
 void handleButtonPress() {
-  Dabble.processInput();
   if (GamePad.isUpPressed()) {
-    ​ Serial.println("Forward");
-     moveForward();
+    Serial.println("Forward");
+    moveForward();
   }
   else if (GamePad.isDownPressed()) {
-     Serial.println("Backward");
-     moveBackward();
+    Serial.println("Backward");
+    moveBackward();
   }
   else if (GamePad.isLeftPressed()) {
-    // Serial.println("Left");
-    // turnLeft(); 
-     turnLeft();
+    Serial.println("Turn Left");
+    turnLeft();
   }
   else if (GamePad.isRightPressed()) {
-    // Serial.println("Right");
-    //turnLeft(); 
-     turnRight(); 
+    Serial.println("Turn Right");
+    turnRight();
   }
-
   else if (GamePad.isSquarePressed()) {
-    // Serial.println("Spin Counterclockwise");
+    Serial.println("Spin Left");
     turnLeft();
   }
   else if (GamePad.isCirclePressed()) {
-    // Serial.println("Spin ClockwiseMove");
+    Serial.println("Spin Right");
     turnRight();
   }
   else {
     stop();
   }
-  delay(50);
+}
+
+// NEW: Handle Joystick Input
+void handleJoystickInput() {
+  int x = GamePad.getXaxis(); // -7 to 7
+  int y = GamePad.getYaxis(); // -7 to 7
+
+  int deadZone = 2; // To prevent accidental movement near center
+
+  if (y > deadZone && abs(x) <= deadZone) {
+    Serial.println("Joystick Forward");
+    moveForward();
+  }
+  else if (y < -deadZone && abs(x) <= deadZone) {
+    Serial.println("Joystick Backward");
+    moveBackward();
+  }
+  else if (x < -deadZone && abs(y) <= deadZone) {
+    Serial.println("Joystick Left");
+    turnLeft();
+  }
+  else if (x > deadZone && abs(y) <= deadZone) {
+    Serial.println("Joystick Right");
+    turnRight();
+  }
+  else {
+    stop(); // If joystick is near center, stop
+  }
 }
