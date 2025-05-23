@@ -1,6 +1,7 @@
 #define CUSTOM_SETTINGS
 #define INCLUDE_GAMEPAD_MODULE
 #include <Dabble.h>
+#include <Servo.h>  // Include the Servo library
 
 // Left Motor
 int in1 = 13;
@@ -10,6 +11,11 @@ int in2 = 12;
 int in3 = 11;
 int in4 = 10;
 
+// Servo
+Servo myServo;
+int servoPin = 9;        // Connect your servo signal pin here
+int angle = 90;          // Start at middle position (0 to 180)
+
 void setup() {
   Serial.begin(9600);
   Dabble.begin(9600, 3); // RX = 3
@@ -17,13 +23,16 @@ void setup() {
   pinMode(in2, OUTPUT);
   pinMode(in3, OUTPUT);
   pinMode(in4, OUTPUT);
+
+  myServo.attach(servoPin);
+  myServo.write(angle);  // Initialize at middle position
+
   Serial.println("Remote Control Ready!");
 }
 
 void loop() {
   Dabble.processInput();
   handleButtonPress();
-  handleJoystickInput();  // Now both buttons and joystick work
   delay(50);
 }
 
@@ -79,35 +88,19 @@ void handleButtonPress() {
     Serial.println("Spin Right");
     turnRight();
   }
+  else if (GamePad.isTrianglePressed()) {
+    angle = constrain(angle + 5, 0, 180);  // Increase angle
+    myServo.write(angle);
+    Serial.print("Servo Angle Increased: ");
+    Serial.println(angle);
+  }
+  else if (GamePad.isCrossPressed()) {
+    angle = constrain(angle - 5, 0, 180);  // Decrease angle
+    myServo.write(angle);
+    Serial.print("Servo Angle Decreased: ");
+    Serial.println(angle);
+  }
   else {
     stop();
-  }
-}
-
-// NEW: Handle Joystick Input
-void handleJoystickInput() {
-  int x = GamePad.getXaxis(); // -7 to 7
-  int y = GamePad.getYaxis(); // -7 to 7
-
-  int deadZone = 2; // To prevent accidental movement near center
-
-  if (y > deadZone && abs(x) <= deadZone) {
-    Serial.println("Joystick Forward");
-    moveForward();
-  }
-  else if (y < -deadZone && abs(x) <= deadZone) {
-    Serial.println("Joystick Backward");
-    moveBackward();
-  }
-  else if (x < -deadZone && abs(y) <= deadZone) {
-    Serial.println("Joystick Left");
-    turnLeft();
-  }
-  else if (x > deadZone && abs(y) <= deadZone) {
-    Serial.println("Joystick Right");
-    turnRight();
-  }
-  else {
-    stop(); // If joystick is near center, stop
   }
 }
