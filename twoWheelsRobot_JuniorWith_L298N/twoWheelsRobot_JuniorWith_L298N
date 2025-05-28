@@ -4,17 +4,23 @@
 #include <Servo.h>  // Include the Servo library
 
 // Left Motor
-int in1 = 13;
-int in2 = 12;
+int in1 = 6;
+int in2 = 7;
 
 // Right Motor
-int in3 = 11;
-int in4 = 10;
+int in3 = 8;
+int in4 = 9;
 
 // Servo
 Servo myServo;
-int servoPin = 9;        // Connect your servo signal pin here
-int angle = 90;          // Start at middle position (0 to 180)
+int servoPin = 7;        // Connect your servo signal pin here
+int angle = 20;          // Start at middle position (0 to 180)
+int maxAngle = 150;
+int minAngle = 50;
+int stepAngle = 10;
+
+//Set Servo Mode
+bool isDeadlyMode = false ;
 
 void setup() {
   Serial.begin(9600);
@@ -25,8 +31,7 @@ void setup() {
   pinMode(in4, OUTPUT);
 
   myServo.attach(servoPin);
-  myServo.write(angle);  // Initialize at middle position
-
+  myServo.write(minAngle);  // Initialize at middle position
   Serial.println("Remote Control Ready!");
 }
 
@@ -34,6 +39,12 @@ void loop() {
   Dabble.processInput();
   handleButtonPress();
   delay(50);
+
+  // delay(1000);
+  // myServo.write(maxAngle); 
+  // delay(1000);
+  // myServo.write(minAngle); 
+  // delay(1000);
 }
 
 // Movement Functions
@@ -62,9 +73,17 @@ void stop() {
   digitalWrite(in3, LOW); digitalWrite(in4, LOW);
 }
 
+
 // Handle gamepad button input
 void handleButtonPress() {
-  if (GamePad.isUpPressed()) {
+  if (GamePad.isSelectPressed()) {
+    Serial.println("Select Press");
+    isDeadlyMode = !isDeadlyMode;
+    Serial.print("isDeadlyMode: ");
+    Serial.println(isDeadlyMode);
+  }
+
+  else if (GamePad.isUpPressed()) {
     Serial.println("Forward");
     moveForward();
   }
@@ -88,18 +107,36 @@ void handleButtonPress() {
     Serial.println("Spin Right");
     turnRight();
   }
+
   else if (GamePad.isTrianglePressed()) {
-    angle = constrain(angle + 5, 0, 180);  // Increase angle
-    myServo.write(angle);
-    Serial.print("Servo Angle Increased: ");
-    Serial.println(angle);
+  if (!isDeadlyMode) {
+    angle += stepAngle;
+    if (angle > maxAngle) {
+      angle = maxAngle;
+    }
+  } else {
+    angle = maxAngle;
   }
-  else if (GamePad.isCrossPressed()) {
-    angle = constrain(angle - 5, 0, 180);  // Decrease angle
-    myServo.write(angle);
-    Serial.print("Servo Angle Decreased: ");
-    Serial.println(angle);
+  Serial.print("Triangle - Servo Angle: ");
+  Serial.println(angle);
+  myServo.write(angle);
+}
+
+else if (GamePad.isCrossPressed()) {
+  if (!isDeadlyMode) {
+    angle -= stepAngle;
+    if (angle < minAngle) {
+      angle = minAngle;
+    }
+  } else {
+    angle = minAngle;
   }
+  Serial.print("Cross - Servo Angle: ");
+  Serial.println(angle);
+  myServo.write(angle);
+}
+
+
   else {
     stop();
   }
