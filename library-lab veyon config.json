@@ -1,0 +1,125 @@
+{
+    "Authentication": {
+        "Method": 1
+    },
+    "BuiltinDirectory": {
+        "NetworkObjects": {
+            "JsonStoreArray": [
+                {
+                    "Name": "Lab-Library",
+                    "Type": 2,
+                    "Uid": "{ebaae862-191c-461d-880d-5e2400151a89}"
+                },
+                {
+                    "HostAddress": "Lib-Lab-PC01",
+                    "MacAddress": "C4525C50-7B37-4907-A0A6-A974446FAFAE",
+                    "Name": "Lib-Lab-PC01",
+                    "ParentUid": "{ebaae862-191c-461d-880d-5e2400151a89}",
+                    "Type": 3,
+                    "Uid": "{0133ae5c-697e-4284-8424-00c4612bd8fa}"
+                },
+                {
+                    "HostAddress": "Lib-Lab-PC02",
+                    "MacAddress": "29366BFE-A737-498A-AB4A-E348CD171A23",
+                    "Name": "Lib-Lab-PC02",
+                    "ParentUid": "{ebaae862-191c-461d-880d-5e2400151a89}",
+                    "Type": 3,
+                    "Uid": "{4afe9f1f-ab83-4ba4-bbda-289bd3931202}"
+                },
+                {
+                    "HostAddress": "Lib-Lab-PC03",
+                    "MacAddress": "8D06C7DC-77FB-4D2D-89ED-1EC74604D387",
+                    "Name": "Lib-Lab-PC03",
+                    "ParentUid": "{ebaae862-191c-461d-880d-5e2400151a89}",
+                    "Type": 3,
+                    "Uid": "{72b5e75b-ac7e-4472-b473-038d1ee7e1ca}"
+                },
+                {
+                    "HostAddress": "Lib-Lab-PC04",
+                    "MacAddress": "B8DEB359-65A3-4FAA-A2C3-6E3A9B9E0AC8",
+                    "Name": "Lib-Lab-PC04",
+                    "ParentUid": "{ebaae862-191c-461d-880d-5e2400151a89}",
+                    "Type": 3,
+                    "Uid": "{c5fca9fa-673f-441d-bfc3-31b3241635eb}"
+                }
+            ]
+        }
+    },
+    "Core": {
+        "ApplicationVersion": 9,
+        "InstallationID": "6e886a47-a800-4d22-9861-d5bcf50e3586",
+        "PluginVersions": {
+            "JsonStoreObject": {
+                "{14bacaaa-ebe5-449c-b881-5b382f952571}": "1.1",
+                "{1b08265b-348f-4978-acaa-45d4f6b90bd9}": "1.1",
+                "{1baa01e0-02d6-4494-a766-788f5b225991}": "1.1",
+                "{2917cdeb-ac13-4099-8715-20368254a367}": "1.1",
+                "{2ad98ccb-e9a5-43ef-8c4c-876ac5efbcb1}": "1.1",
+                "{387a0c43-1355-4ff6-9e1f-d098e9ce5127}": "1.1",
+                "{39d7a07f-94db-4912-aa1a-c4df8aee3879}": "1.1",
+                "{4122e8ca-b617-4e36-b851-8e050ed2d82e}": "1.2",
+                "{4790bad8-4c56-40d5-8361-099a68f0c24b}": "1.1",
+                "{67dfc1c1-8f37-4539-a298-16e74e34fd8b}": "1.1",
+                "{6f0a491e-c1c6-4338-8244-f823b0bf8670}": "1.2",
+                "{80580500-2e59-4297-9e35-e53959b028cd}": "1.2",
+                "{8ae6668b-9c12-4b29-9bfc-ff89f6604164}": "1.1",
+                "{a54ee018-42bf-4569-90c7-0d8470125ccf}": "2.0",
+                "{d4bb9c42-9eef-4ecb-8dd5-dfd84b355481}": "1.0",
+                "{e11bee03-b99c-465c-bf90-7e5339b83f6b}": "1.0",
+                "{ee322521-f4fb-482d-b082-82a79003afa7}": "1.1",
+                "{f626f759-7691-45c0-bd4a-37171d98d219}": "1.0"
+            }
+        }
+    },
+    "Features": {
+        "DisabledFeatures": [
+        ]
+    },
+    "LDAP": {
+        "BindDN": "student",
+        "BindPassword": "54ea14ce3c2a3c888d904f87d83c42f54286bf53c2b69efb1077efbb93d71902d15381bb97fa892651a1f6fed2a9258869ca511ef67d0b5b8191d8368a9b2aefe7e21aeec6f5a146825026ba2076fde2405450fe94ffbc663a407222de7c376f90decd65932cc1ab05834f91ea4878b25292845e1e1eb674d2122ac2e30bb2e39799aff3d603b83b324278ff80b9ad3abc38e011a8b5e45ea2297281afabb58d790b44471091c12ffdae5f18b4e4cf6187c74eb8ba34a19a5514673ba94a10fa241a3ba1c7ebd2f568cce4ab102bb52c0da4389bacead84aa28a78a194d99325307ff6f95d7cde81175a22689b5063602a3197bf0b7739f1929f6bd6dd5ae19055652dbaf1bf4b4db405d0087cccb0d780be31329981f9d0075b61a5b76b6b22b6c2e35483c66a77fb544980358d9b51961b04142f4bd23a3a8b8ff533797d70121068120a876efb535c82e75f845f1ee019ab0c22d39e21a110c38e7ec72a0f6211840bdb60ef4d485f6edd2babdb79c2a97a0bd80b266604d6cce9c8bb106f8ea85d7cc87fcf6ac381100c53510660efb2f0d017d883c2b6fbf46ae7e313c952241e5c210439e1a0969680a3920db7d9b5db0674852e29ec81cf3a5d0d12e4471fd7cec52767fb67debac31db28f56b79ce99a2d0ffe595380127e38b4e46de20ae90639a7a4c63c58fa341d3308f8e37d095ed2c1e056ca491479abf76dad",
+        "ComputerLocationAttribute": "",
+        "ComputerLocationsByAttribute": "false",
+        "ComputerLocationsByContainer": "false",
+        "LocationNameAttribute": "",
+        "UseBindCredentials": "true",
+        "UserLoginNameAttribute": ""
+    },
+    "Master": {
+        "AllowAddingHiddenLocations": "false",
+        "AutoAdjustMonitoringIconSize": "false",
+        "AutoOpenComputerSelectPanel": "false",
+        "AutoSelectCurrentLocation": "false",
+        "ComputerMonitoringAspectRatio": 1,
+        "ComputerMonitoringImageQuality": 0,
+        "ComputerMonitoringUpdateInterval": 250,
+        "ConfirmUnsafeActions": "false",
+        "HideComputerFilter": "false",
+        "HideEmptyLocations": "false",
+        "HideLocalComputer": "false",
+        "RemoteAccessImageQuality": 0,
+        "ShowCurrentLocationOnly": "false"
+    },
+    "Network": {
+        "FirewallExceptionEnabled": "1",
+        "VeyonServerPort": 11100
+    },
+    "NetworkObjectDirectory": {
+        "Plugin": "14bacaaa-ebe5-449c-b881-5b382f952571"
+    },
+    "Service": {
+        "RemoteConnectionNotifications": "true",
+        "SoftwareSASEnabled": "0"
+    },
+    "UI": {
+        "ColorScheme": 1,
+        "Style": 1
+    },
+    "UserGroups": {
+        "Backend": "2917cdeb-ac13-4099-8715-20368254a367",
+        "UseDomainUserGroups": "false"
+    },
+    "Windows": {
+        "SoftwareSASEnabled": "1"
+    }
+}
